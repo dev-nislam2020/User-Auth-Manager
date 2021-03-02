@@ -49,4 +49,4 @@ class ContactForm(forms.Form):
         message = self.cleaned_data.get('message')
         from_email = self.cleaned_data.get('from_email')
             
-        return send_mail(subject, message, from_email, ['nislam7944@gmail.com'])
+        return send_mail(subject, message, from_email, ['your@gmail.com'])
