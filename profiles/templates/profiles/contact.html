@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UAM | Contact</title>
+  </head>
+  <body>
+    <h1>Welcome To</h1>
+    <h3>User Authentication Manager...</h3>
+    <hr />
+    <p>
+      <span>CONTACT PAGE --- </span><a href="{% url 'index' %}">Index</a>
+      <span> -- </span><a href="{% url 'users:login' %}">Login</a>
+      <span> -- </span><a href="{% url 'users:register' %}">Register</a>
+    </p>
+    <hr />
+    <h3>Contact Here</h3>
+    <form method="post" action="{% url 'contact' %}">
+      {% csrf_token %}
+      <table>
+        {% if form.error %}
+        <tr>
+          <td>{{ form.error }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ form.name.label_tag }}</td>
+          <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.subject.label_tag }}</td>
+          <td>{{ form.subject }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.from_email.label_tag }}</td>
+          <td>{{ form.from_email }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.message.label_tag }}</td>
+          <td>{{ form.message }}</td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Send" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UAM | Login</title>
+  </head>
+  <body>
+    <h1>Welcome To</h1>
+    <h3>User Authentication Manager...</h3>
+    <hr />
+    <p>
+      <span>LOGIN PAGE --- </span><a href="{% url 'index' %}">Index</a>
+      <span> -- </span><a href="{% url 'users:register' %}">Register</a>
+      <span> -- </span
+      ><a href="{% url 'users:password-reset' %}">Forget Password</a>
+    </p>
+    <hr />
+    <h3>Login Here</h3>
+    <form method="post" action="{% url 'users:login' %}">
+      {% csrf_token %}
+      <table>
+        {% if form.error %}
+        <tr>
+          <td>{{ form.error }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Login" /></td>
+          <td><input type="hidden" name="next" value="{{ next }}" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

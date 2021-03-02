@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UAM | Register</title>
+  </head>
+  <body>
+    <h1>Welcome To</h1>
+    <h3>User Authentication Manager...</h3>
+    <hr />
+    <p>
+      <span>REGISTER PAGE --- </span
+      ><a href="{% url 'index' %}">Index</a> <span> -- </span
+      ><a href="{% url 'users:login' %}">Login</a>
+    </p>
+    <hr />
+    <h3>Register Here</h3>
+    <form method="post" action="{% url 'users:register' %}">
+      {% csrf_token %}
+      <table>
+        {% if form.error %}
+        <tr>
+          <td>{{ form.error }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.email.label_tag }}</td>
+          <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password1.label_tag }}</td>
+          <td>{{ form.password1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password2.label_tag }}</td>
+          <td>{{ form.password2 }}</td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Register" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

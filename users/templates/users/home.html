@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UAM | Home</title>
+  </head>
+  <body>
+    <h1>Welcome To</h1>
+    <h3>User Authentication Manager...</h3>
+    <hr />
+    <p>
+      <span>HOME PAGE --- {{user.username}} --- </span><a href="{% url 'users:logout' %}">LogOut</a>
+      <span> -- </span><a href="{% url 'users:password-change' %}">Password Change</a>
+      <span> -- </span><a href="{% url 'profiles:profile' %}">Profile</a>
+    </p>
+    <h3>Thank you {{user.first_name}} {{user.last_name}}</h3>
+    <h4>welcome back to our site.</h4>
+    <hr />
+  </body>
+</html>

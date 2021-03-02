@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UAM | Profile Update</title>
+  </head>
+  <body>
+    <h1>Welcome To</h1>
+    <h3>User Authentication Manager...</h3>
+    <hr />
+    <p>
+      <span>PROFILE UPDATE PAGE --- </span
+      ><a href="{% url 'users:home' %}">Home</a> <span> -- </span
+      ><a href="{% url 'profiles:profile' %}">Profile</a> <span> -- </span
+      ><a href="{% url 'users:logout' %}">LogOut</a>
+    </p>
+    <hr />
+    <h3>Profile Update Here</h3>
+    <form method="post" action="{% url 'profiles:profile-update' %}">
+      {% csrf_token %}
+      <table>
+        {% if form.error %}
+        <tr>
+          <td>{{ form.error }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ form.first_name.label_tag }}</td>
+          <td>{{ form.first_name }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.last_name.label_tag }}</td>
+          <td>{{ form.last_name }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.dob.label_tag }}</td>
+          <td>{{ form.dob }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.blood_group.label_tag }}</td>
+          <td>{{ form.blood_group }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.nationality.label_tag }}</td>
+          <td>{{ form.nationality }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.gender.label_tag }}</td>
+          <td>{{ form.gender }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.marital_status.label_tag }}</td>
+          <td>{{ form.marital_status }}</td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Update" /></td>
+          <td><input type="hidden" name="next" value="{{ next }}" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
